@@ -12,7 +12,7 @@
     <div>@include('Persona.LstDatosBasicos')</div>
     @if($resultado === 0)
         <div class="alert alert-warning alerta_small">
-            <p><small><span class="fui-question-circle"></span> Datos importantes incompletos. <a href="{{ route('paciente.edit',session('id_persona')) }}" style="color: #FFBF00;">Completar Ahora...</a></small></p>
+            <p><small><span class="fui-question-circle"></span> Datos importantes incompletos. <a href="{{ route('paciente.edit',session('id_persona')) }}" style="color: #FFBF00;">Completar...</a></small></p>
             <!-- <p class="navbar-text navbar-right" style="margin-top: -35px;"><button class="btn btn-warning navbar-btn" type="button" style="margin-top: 1px; margin-bottom: 1px; margin-right: 8px; padding: 5px 5px;" onclick="document.location.href='{{ route('paciente.edit',session('id_persona')) }}'">Completar Ahora</button></p> -->
         </div>
     @else
