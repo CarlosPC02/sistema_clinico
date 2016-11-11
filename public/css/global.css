@@ -1,0 +1,308 @@
+@charset "utf-8";
+/* CSS Document */
+/* Estilo Propio */
+
+/* Definicion de fondos */
+#fondo_login{	
+	background-image:url(../imagenes/bg1.jpg);
+	background-size:100% 100%;
+}
+
+#form_login{
+	background: rgba(13, 13, 13, 0.6);
+	border: 1px solid #FFFFFF;
+	border-radius: 20px;
+	padding: 15px;
+	box-shadow:#2D5A39 5px 5px 10px;
+	opacity: 1.8;
+	text-align: center;
+	color:#FFFFFF;
+}
+
+#fondo_trabajo{
+	background-image: url(../imagenes/bg2.jpg);
+	background-size: 100% 100%;
+/*	max-width: 100%;
+	min-width: 100%;
+	position:static;
+*/	background-attachment:fixed;
+}
+
+/*comienza css de la seccion de foto del paciente*/
+#foto{
+	width: 180px;
+	margin:0 auto;
+	margin-bottom: 10px;
+	position:relative;
+}
+
+/*Definicion de Margenes Superiores*/
+.margen_menu{
+	margin-top: 100px;
+}
+
+.cuadro_principal_menu{
+	margin-top: 30px;
+	margin-left: 10px;
+	margin-bottom: 36px;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+.margenes1{
+	margin-top: 100px;
+}
+
+.margenes2{
+	margin-top:210px;
+}
+.margenes3{
+	margin-top:275px;
+}
+.marco_menu{
+	height:100%;
+	margin-top:100px;
+	margin-bottom:50px;
+}
+
+/* Definicion de Menu Lateral */
+#menu_lateral{
+	position: fixed;
+	width: 55px;
+	/*	height: 92%;    hasta el tope inferior*/
+	height: 70%;
+	background-color: #2c3e50;  /*asfalto mojado*/
+	/*	background-color: #1abc9c;      turquesa */
+	overflow: hidden;
+	-webkit-transition: width 0.7s cubic-bezier(.61,.01,.37,1);
+	-ms-transition: width 0.7s cubic-bezier(.61,.01,.37,1);
+	-moz-transition: width 0.7s cubic-bezier(.61,.01,.37,1);
+	top: 50px;
+	left: 0px;
+	padding-top: 3px;
+	border-bottom-right-radius: 10px;
+}
+.icono_menu{
+	font-size: 22px;
+	text-align: left;
+	left: 5px;
+}
+.textomenu{
+	width: 65px;
+	font-size: 10px;
+	text-align: left;
+	left: -26px;
+	color: #FFFFFF;
+}
+
+.nav-pills>li.active>a,.nav-pills>li.active>a:hover,.nav-pills>li.active>a:focus
+{
+	color:#fff;
+	background-color:#428bca
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:#EFEFEF;
+    background-color:#1abc9c;
+/*	background-color:#16a085;*/  /*Sea Green*/
+}
+
+
+/* Titulo de Opcion */
+.titulo_general{
+	margin-top: 50px;
+	margin-left: 30px;
+	width: auto;
+	color: #F5F5F5;
+	background-color: #1abc9c;
+	padding-left: 35px;
+	overflow-x: visible;
+}
+
+/* Marco de Trabajo General para Solucion */
+.marco_trabajo{
+	margin-top: 0px;
+	margin-left: 50px;
+}
+.marco_trabajo_formulario{
+	margin-top: 10px;
+	margin-left: 60px;
+}
+
+/* Marco para paciente encontrado*/
+.paciente_encontrado{
+	margin-top: 5px;
+/*	margin-left: 5px;
+	margin-right: 5px;*/
+	margin-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding:5px;
+	border-radius: 5px;
+	border: thin solid #16A085;
+
+}
+.marco_trabajo_paciente{
+	margin-left: -1px;
+	padding-top: 10px;
+	padding-left: 20px;
+	min-height: 340px;
+	
+	border-left-color: #16A085;
+	border-right-color: #16A085;
+	border-bottom-color: #16A085;
+	border-left-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.thumb_paciente{
+	max-width: 60px;
+	max-height: 60px;
+	min-width: 60px;
+	min-height: 60px;
+	float: left;
+	border: thin solid #909090;
+	border-radius: 5px;
+}
+/*Nombre del paciente encontrado */
+.texto_paciente_encontrado{
+	font-size: normal;
+	font-weight: bold;
+	margin-top: 15px;
+}
+/*Campo para la fecha de nacimiento / edad del paciente */
+h6 small{
+	color: #1abc9c;
+}
+/* Texto de menu para paciente encontrado */
+.texto_thumb_paciente{
+	font-size: small;
+	margin-bottom: -1px;
+	padding-left: 2px;
+	margin-top: -5px;
+}
+
+.marco_tabs{
+	margin-left: -22px;
+}
+
+.disabledTab{
+    pointer-events: none;
+}
+.alerta_small{
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.tamanio_selector{
+	max-width: 300px;
+	margin-left: 0px;
+}
+
+.posicion_input{
+	margin-top: -10px;
+	margin-bottom: -10px;
+	margin-left: -15px;
+}
+
+/* Opciones de Paciente */
+.cuadro_menu_paciente {
+	float: left;
+	width: 250px;
+	height: 120px;
+	background-color: #1ABC9C;
+	margin-left: 1px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	border-top-right-radius: 15px;
+	-webkit-box-shadow: 5px 5px 10px rgba(0,0,0,1.00);
+	box-shadow: 5px 5px 10px rgba(0,0,0,1.00);
+	font-weight: bold;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.imagen_menu {
+	float: left;
+	max-width: 70px;
+	max-height: 70px;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+.titulo_menu {
+	color: rgba(255,255,255,1.00);
+	font-weight: bold;
+	font-size: large;
+	float: left;
+	margin-top: 25px;
+	margin-left: 0px;
+}
+.texto_menu {
+	color: #2C3E50;
+	font-size: small;
+	float: left;
+	margin-top: -20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+/* Css para Historial -*/
+.glyphicon:hover{
+	color: #F5F5F5;
+	border: 1px dotted #FF3131;
+}
+
+
+/* Estilo de Tabla */
+th {
+	font-weight: bold;
+	text-align: center;
+}
+.tabla_xsmall {
+	font-size: 10px;
+}
+.tabla_small {
+	font-size: 13px;
+	border-spacing: 20em;
+}
+.boton_superior_registro{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.boton_inferior{
+	width: 100px;
+}
+
+
+/* Footer down */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 120px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 120px;
+  background-color: #f5f5f5;
+}
+#wrapper {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
