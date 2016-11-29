@@ -25,7 +25,7 @@
                     <td>{{ $persona-> ap_materno }}</td>
                     <td>{{ $persona-> fecha_nacimiento }}</td>
                     <td>{{ $persona-> documento_identidad }}</td>
-                    <td><a href="{{ url('/SeleccionarPersona', [$persona->id_persona,$codigo]) }}"> [Seleccionar] </a></td>
+                    <td><a href="{{ url('/SeleccionarPersona', [$persona->id_persona,$codigo]) }}"> <span class="fui-user"></span> Seleccionar </a></td>
                 </tr>
                 @endforeach
             </tbody>
