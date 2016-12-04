@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Historia;
+namespace App\Http\Controllers\OrdenesG;
 
 use Illuminate\Http\Request;
 
@@ -8,32 +8,24 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Administracion\BitacoraControlador;
 
-use App\Models\HistoriaClinica;
+use App\Models\OrdenGabinete;
 
-use App\Repositories\PersonaRepository;
-use App\Repositories\DominioRepository;
-
-use Carbon\Carbon;
-
-class HistoriaControladorABM extends Controller
+class OrdenesGControladorABM extends Controller
 {
-    protected $personas;
-    protected $dominios;
-
-    public function __construct(PersonaRepository $personas, DominioRepository $dominios)
-    {
-        $this->personas=$personas;
-        $this->dominios=$dominios;
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        
+        $id=$request->id_consulta;
+        $ordenes=OrdenGabinete::where('id_consulta','=',$id)
+            ->where('estado','=','AC')
+            ->get();
+
+        return view('OrdenesG.LstOrdenesG',['ordenes'=>$ordenes]);
     }
 
     /**
@@ -44,8 +36,6 @@ class HistoriaControladorABM extends Controller
     public function create()
     {
         //
-
-        
     }
 
     /**
@@ -57,25 +47,17 @@ class HistoriaControladorABM extends Controller
     public function store(Request $request)
     {
         //
-
-
         if($request->ajax())
         {
-
-            $id_paciente=session('id_paciente');
             $bitacora = new BitacoraControlador;
-            $id_bitacora= $bitacora->generar_bitacora($request,'200');
+            $id_bitacora= $bitacora->generar_bitacora($request,'650');
             $request->merge(['id_bitacora' => $id_bitacora]);
-            $request->merge(['codigo_institucion' => Auth()->user()->codigo_institucion]);
-            $request->merge(['id_paciente' => $id_paciente]);
 
-            $resultado=HistoriaClinica::create($request->all()); 
+            $resultado=OrdenGabinete::create($request->all());
 
             if($resultado)
-            {              
-                $id = HistoriaClinica::all()->last()->id_historia;
-                return response()->json(['success'=>'true','id'=>$id]);
-
+            {
+                return response()->json(['success'=>'true']);
             }
             else
             {
@@ -92,25 +74,7 @@ class HistoriaControladorABM extends Controller
      */
     public function show($id)
     {
-        
-        $fechaA = Carbon::now()->format('Y-m-d');
-        $horaA = Carbon::now()->format('H:m:s');
-        $medicos = $this->personas->RepMedico(Auth()->user()->codigo_institucion);
-        $tipos=$this->dominios->RepDominio("TIPO ALERGIA");
-        $tipoa=$this->dominios->RepDominio("TIPO ANTECEDENTE");
-
-        $historia = HistoriaClinica::where('id_paciente','=',$id)->first();
-        // verifica si existe o no la historia 
-        if ($historia != null)
-        {
-            return view('Historia.FrmVerHistoria',['historia'=>$historia,'tipos'=>$tipos,'tipoa'=>$tipoa]);
-        }
-        else
-        {          
-            return view('Historia.FrmCrearHistoria',['medicos'=>$medicos,'tipos'=>$tipos,'fecha'=>$fechaA,'hora'=>$horaA,'tipoa'=>$tipoa]);
-        }
-
-        
+        //
     }
 
     /**
@@ -145,5 +109,17 @@ class HistoriaControladorABM extends Controller
     public function destroy($id)
     {
         //
+        $registro = OrdenGabinete::FindOrFail($id);
+        $registro->estado = 'DC';
+        $registro->save();
+
+        if($registro)
+        {
+            return response()->json(['success'=>'true']);
+        }
+        else
+        {
+            return response()->json(['success'=>'false']);
+        }
     }
 }

@@ -13,8 +13,8 @@
                         <td>{{ $antecedente->id_historia }}</td>
                         <td>{{ $antecedente->tipo_antecedente }}</td>
                         <td>{{ $antecedente->descripcion }}</td>
-                        <td><a href="#" onclick="eliminarN('{{ $antecedente->id_antecedente_historia}}','antecedentesH','ListaAntecedentes')"> [Eliminar]</a></td>
-                        {{-- <td><a href="#" onclick="eliminarN('{{ $antecedente->id_antecedente_historia}}')"> [Eliminar]</a></td> --}}
+                        <!-- <td><a href="#" onclick="eliminarN('{ $antecedente->id_antecedente_historia}}','antecedentesH','ListaAntecedentes')"> [Eliminar]</a></td> -->
+                        <td><a href="#" onclick="eliminarN('{{ $antecedente->id_antecedente_historia}}')"> [Eliminar]</a></td>
                     </tr>
                     @endforeach
                 </tbody>

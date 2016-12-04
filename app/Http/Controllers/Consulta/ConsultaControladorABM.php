@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Historia;
+namespace App\Http\Controllers\Consulta;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
 use App\Http\Controllers\Administracion\BitacoraControlador;
 
-use App\Models\HistoriaClinica;
+use App\Models\Consulta;
 
 use App\Repositories\PersonaRepository;
 use App\Repositories\DominioRepository;
 
 use Carbon\Carbon;
 
-class HistoriaControladorABM extends Controller
+class ConsultaControladorABM extends Controller
 {
     protected $personas;
     protected $dominios;
@@ -33,7 +34,8 @@ class HistoriaControladorABM extends Controller
     public function index()
     {
         //
-        
+        $fechaA = Carbon::now()->format('Y-m-d');
+        return view('Consulta.FrmOpcionConsulta',['fecha'=>$fechaA]);
     }
 
     /**
@@ -44,8 +46,18 @@ class HistoriaControladorABM extends Controller
     public function create()
     {
         //
+        $fechaA = Carbon::now()->format('Y-m-d');
+        $horaA = Carbon::now()->format('H:m:s');
 
-        
+        $medicos = $this->personas->RepMedico(Auth()->user()->codigo_institucion);
+        $tipos=$this->dominios->RepDominio("TIPO CONSULTA");
+        $tiposd=$this->dominios->RepDominio("TIPO DIAGNOSTICO");
+        $tiposl=$this->dominios->RepDominio("TIPO LABORATORIO");
+        $tiposg=$this->dominios->RepDominio("TIPO GABINETE");
+        $tipost=$this->dominios->RepDominio("TIPO TRATAMIENTO");
+        $medicamentos=$this->dominios->RepMedicamentos();
+
+        return view('Consulta.FrmCrearConsulta',['medicos'=>$medicos,'tipos'=>$tipos,'fecha'=>$fechaA,'hora'=>$horaA,'tiposd'=>$tiposd,'tiposl'=>$tiposl,'tiposg'=>$tiposg,'tipost'=>$tipost,'medicamentos'=>$medicamentos]);
     }
 
     /**
@@ -56,24 +68,26 @@ class HistoriaControladorABM extends Controller
      */
     public function store(Request $request)
     {
+        $fechaF = Carbon::now()->format('Y-m-d');
+        $horaF = Carbon::now()->format('H:m:s');
         //
-
-
         if($request->ajax())
         {
 
             $id_paciente=session('id_paciente');
             $bitacora = new BitacoraControlador;
-            $id_bitacora= $bitacora->generar_bitacora($request,'200');
+            $id_bitacora= $bitacora->generar_bitacora($request,'600');
             $request->merge(['id_bitacora' => $id_bitacora]);
             $request->merge(['codigo_institucion' => Auth()->user()->codigo_institucion]);
             $request->merge(['id_paciente' => $id_paciente]);
+            $request->merge(['fecha_fin'=>$fechaF]);
+            $request->merge(['hora_fin'=>$horaF]);
 
-            $resultado=HistoriaClinica::create($request->all()); 
+            $resultado=Consulta::create($request->all()); 
 
             if($resultado)
             {              
-                $id = HistoriaClinica::all()->last()->id_historia;
+                $id = Consulta::all()->last()->id_consulta;
                 return response()->json(['success'=>'true','id'=>$id]);
 
             }
@@ -92,25 +106,25 @@ class HistoriaControladorABM extends Controller
      */
     public function show($id)
     {
-        
         $fechaA = Carbon::now()->format('Y-m-d');
-        $horaA = Carbon::now()->format('H:m:s');
-        $medicos = $this->personas->RepMedico(Auth()->user()->codigo_institucion);
-        $tipos=$this->dominios->RepDominio("TIPO ALERGIA");
-        $tipoa=$this->dominios->RepDominio("TIPO ANTECEDENTE");
+        //verificar la fecha de la consulta
+        $consulta = Consulta::where('fecha_fin','=',$fechaA)
+        ->where('id_paciente','=',$id)
+        ->first();
 
-        $historia = HistoriaClinica::where('id_paciente','=',$id)->first();
-        // verifica si existe o no la historia 
-        if ($historia != null)
+        if ($consulta != null)
         {
-            return view('Historia.FrmVerHistoria',['historia'=>$historia,'tipos'=>$tipos,'tipoa'=>$tipoa]);
+            //ya existe una consulta concluida para esta fecha
+            //se puede editar la consulta
+            return view('Consulta.FrmOpcionConsulta',['fecha'=>$fechaA,'idc'=>$consulta->id_consulta]);
         }
         else
-        {          
-            return view('Historia.FrmCrearHistoria',['medicos'=>$medicos,'tipos'=>$tipos,'fecha'=>$fechaA,'hora'=>$horaA,'tipoa'=>$tipoa]);
+        {
+            //no existe la consulta para la fecha
+            //se abre nuevo formulario
+            return redirect()->route('consulta.create');
+            
         }
-
-        
     }
 
     /**
@@ -122,6 +136,9 @@ class HistoriaControladorABM extends Controller
     public function edit($id)
     {
         //
+        $consulta = Consulta::FindOrFail($id);
+
+
     }
 
     /**

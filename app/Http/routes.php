@@ -71,4 +71,25 @@ Route::group(['middleware' => ['auth']],function(){
 
     //---------------------------------------------------- SIGNOS VITALES -----------
     route::resource('medicion','Medicion\MedicionControladorABM');
+
+    //---------------------------------------------------- CONSULTA    -----------
+    route::resource('consulta','Consulta\ConsultaControladorABM');
+
+    //---------------------------------------------------- REVISION CONSULTA    -----------
+    route::resource('revisionconsulta','RevisionConsulta\RevisionConsultaControladorABM');
+
+    //---------------------------------------------------- EVALUACION CONSULTA    -----------
+    route::resource('evaluacion','Evaluacion\EvaluacionControladorABM');
+
+    //---------------------------------------------------- DIAGNOSTICOS CONSULTA    -----------
+    route::resource('diagnosticosC','DiagnosticoConsulta\DiagnosticoConsultaControladorABM');
+
+    //---------------------------------------------------- ORDENES LABORATORIO CONSULTA    -----------
+    route::resource('ordenesL','OrdenesL\OrdenesLControladorABM');
+
+    //---------------------------------------------------- ORDENES GABINETE CONSULTA    -----------
+    route::resource('ordenesG','OrdenesG\OrdenesGControladorABM');
+
+    //---------------------------------------------------- TRATAMIENTOS CONSULTA    -----------
+    route::resource('tratamientosC','TratamientosConsulta\TratamientosConsultaControladorABM');
 });

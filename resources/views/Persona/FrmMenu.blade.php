@@ -22,7 +22,7 @@
     @endif
 
     <!-- Boton Signos Vitales -->
-    <div class="cuadro_menu_paciente"> <a href={{ route('medicion.show', session('id_persona')) }}>
+    <div class="cuadro_menu_paciente"> <a href={{ route('medicion.show',session('id_persona')) }}>
         <div class="imagen_menu"> <img class="img-responsive" src="{{ asset ('../imagenes/menu/gabinete_w.png') }}" alt="Signos Vitales"></div>
         <h3 class="titulo_menu">Signos Vitales</h3>
         <div class="texto_menu"><p><small>Mediciones importantes del Paciente</small></p></div>
@@ -38,7 +38,7 @@
     </div>
 
     <!-- Boton Consulta -->
-    <div class="cuadro_menu_paciente"> <a href="#">
+    <div class="cuadro_menu_paciente"> <a href="{{ route('consulta.show',session('id_paciente')) }}">
         <div class="imagen_menu"> <img class="img-responsive" src="{{ asset ('../imagenes/menu/estetoscopio_w.png') }}" alt="Consulta"></div>
         <h3 class="titulo_menu">Consulta</h3>
         <div class="texto_menu"><p><small>Administracion de Consultas</small></p></div>

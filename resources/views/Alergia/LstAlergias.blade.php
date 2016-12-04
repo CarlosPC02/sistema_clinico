@@ -15,8 +15,8 @@
                         <td>{{ $alergia->tipo_alergia }}</td>
                         <td>{{ $alergia->severidad }}</td>
                         <td>{{ $alergia->agente }}</td>
-                        <td><a href="#" onclick="eliminar('{{ $alergia->id_alergia}}','alergia','ListaAlergias')"> [Eliminar]</a></td>
-                        {{-- <td><a href="#" onclick="eliminarA('{{ $alergia->id_alergia}}')"> [Eliminar]</a></td> --}}
+                        <!-- <td><a href="#" onclick="eliminar('{ $alergia->id_alergia}}','alergia','ListaAlergias')"> [Eliminar]</a></td> -->
+                        <td><a href="#" onclick="eliminarA('{{ $alergia->id_alergia}}')"> [Eliminar]</a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Dominio;
 use App\Models\Seguro;
+use App\Models\Medicamento;
 
 class DominioRepository
 {
@@ -25,5 +26,12 @@ class DominioRepository
         return Seguro::where('tipo_seguro','=',$tipo_seguro)
                     ->orderBy('nombre', 'asc')
                     ->get();
+    }
+
+    public function RepMedicamentos()
+    {
+        return Medicamento::where('estado','=','AC')
+                        ->orderBy('nombre_medico','asc')
+                        ->get();
     }
 }
