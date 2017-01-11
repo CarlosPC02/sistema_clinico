@@ -37,4 +37,9 @@ class Consulta extends Model
     {
     	return $this->hasMany(TratamientoConsulta::class,'id_consulta','id_consulta');
     }
+
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class,'id_paciente','id_paciente');
+    }
 }

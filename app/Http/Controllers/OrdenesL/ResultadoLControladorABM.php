@@ -9,23 +9,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Administracion\BitacoraControlador;
 
 use App\Models\OrdenLaboratorio;
+use App\Models\OrdenGabineteLaboratorio;
 
-class OrdenesLControladorABM extends Controller
+class ResultadoLControladorABM extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $id=$request->id_consulta;
-        $ordenes=OrdenLaboratorio::where('id_consulta','=',$id)
-            ->where('estado','=','AC')
-            ->get();
-
-        return view('OrdenesL.LstOrdenesL',['ordenes'=>$ordenes]);
     }
 
     /**
@@ -47,23 +42,6 @@ class OrdenesLControladorABM extends Controller
     public function store(Request $request)
     {
         //
-        if($request->ajax())
-        {
-            $bitacora = new BitacoraControlador;
-            $id_bitacora= $bitacora->generar_bitacora($request,'640');
-            $request->merge(['id_bitacora' => $id_bitacora]);
-
-            $resultado=OrdenLaboratorio::create($request->all());
-
-            if($resultado)
-            {
-                return response()->json(['success'=>'true']);
-            }
-            else
-            {
-                return response()->json(['success'=>'false']);
-            }
-        }
     }
 
     /**
@@ -72,15 +50,9 @@ class OrdenesLControladorABM extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id_paciente)
+    public function show($id)
     {
-        //Listado de Ordenes de Laboratorio de Paciente
-        $ordenes=OrdenLaboratorio::where('id_consulta','=',"9")//por mientras codigo 9
-            ->where('estado','=','AC')
-            ->orderby('fecha','=','DESC')
-            ->get();
-
-        return view('OrdenesL.LstOrdenLResultado',['ordenes'=>$ordenes]);
+        //
     }
 
     /**
@@ -115,17 +87,5 @@ class OrdenesLControladorABM extends Controller
     public function destroy($id)
     {
         //
-        $registro = OrdenLaboratorio::FindOrFail($id);
-        $registro->estado = 'DC';
-        $registro->save();
-
-        if($registro)
-        {
-            return response()->json(['success'=>'true']);
-        }
-        else
-        {
-            return response()->json(['success'=>'false']);
-        }
     }
 }

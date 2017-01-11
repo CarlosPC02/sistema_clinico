@@ -84,11 +84,13 @@ Route::group(['middleware' => ['auth']],function(){
     //---------------------------------------------------- DIAGNOSTICOS CONSULTA    -----------
     route::resource('diagnosticosC','DiagnosticoConsulta\DiagnosticoConsultaControladorABM');
 
-    //---------------------------------------------------- ORDENES LABORATORIO CONSULTA    -----------
+    //---------------------------------------------------- ORDENES LABORATORIO CONSULTA Y RESPUESTA   -----------
     route::resource('ordenesL','OrdenesL\OrdenesLControladorABM');
+    route::resource('ordenLRespuesta','OrdenesL\ResultadoLControladorABM');
 
-    //---------------------------------------------------- ORDENES GABINETE CONSULTA    -----------
+    //---------------------------------------------------- ORDENES GABINETE CONSULTA Y RESPUESTA   -----------
     route::resource('ordenesG','OrdenesG\OrdenesGControladorABM');
+    route::resource('ordenGRespuesta','OrdenesL\ResultadoGControladorABM');
 
     //---------------------------------------------------- TRATAMIENTOS CONSULTA    -----------
     route::resource('tratamientosC','TratamientosConsulta\TratamientosConsultaControladorABM');

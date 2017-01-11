@@ -46,7 +46,7 @@
     </div>
 
     <!-- Boton Laboratorio -->
-    <div class="cuadro_menu_paciente"> <a href="#">
+    <div class="cuadro_menu_paciente"> <a href="{{ route('ordenesL.show',session('id_paciente')) }}">
         <div class="imagen_menu"> <img class="img-responsive" src="{{ asset ('../imagenes/menu/microscopio_w.png') }}" alt="Laboratorio"></div>
         <h3 class="titulo_menu">Laboratorio</h3>
         <div class="texto_menu"><p><small>Resultados de Laboratorios</small></p></div>
@@ -54,7 +54,7 @@
     </div>
     
     <!-- Boton Gabinete -->
-    <div class="cuadro_menu_paciente"> <a href="#">
+    <div class="cuadro_menu_paciente"> <a href="{{ route('ordenesG.show',session('id_paciente')) }}">
         <div class="imagen_menu"> <img class="img-responsive" src="{{ asset ('../imagenes/menu/enfermera_w.png') }}" alt="Gabinete"></div>
         <h3 class="titulo_menu">Gabinete</h3>
         <div class="texto_menu"><p><small>Administracion de Imagenología</small></p></div>

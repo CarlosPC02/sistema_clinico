@@ -9,9 +9,22 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Administracion\BitacoraControlador;
 
 use App\Models\OrdenGabinete;
+use App\Models\Consulta;
+
+use App\Repositories\DominioRepository;
+use App\Repositories\OrdenRepository;
 
 class OrdenesGControladorABM extends Controller
 {
+    protected $dominios;
+    protected $ordenes;
+
+    public function __construct(DominioRepository $dominios, OrdenRepository $ordenes)
+    {
+        $this->dominios = $dominios;
+        $this->ordenes = $ordenes;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -72,9 +85,18 @@ class OrdenesGControladorABM extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id_paciente)
     {
-        //
+        //Listado de ordenes de gabinete del paciente
+         $ordenes=OrdenGabinete::where('id_consulta','=',"8") //por mientras codigo fijo 8
+             ->where('estado','=','AC')
+             ->orderby('fecha','=','DESC')
+             ->get();
+             
+        // $paciente = $id_paciente;
+        // $ordenes = $this->ordenes->RepOrdenGabineteBuscar($paciente);
+
+        return view('OrdenesG.LstOrdenGResultado',['ordenes'=>$ordenes]);
     }
 
     /**
