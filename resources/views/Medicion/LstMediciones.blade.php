@@ -98,7 +98,7 @@
 		</div>
 	</div>
 
-	<!--Modales-->
+		|<!--Modales-->
 	<!--modal para signos vitales-->
 	<div class="modal fade" id="signos" role="dialog" aria-hidden="false">
 		<div class="modal-dialog">

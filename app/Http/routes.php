@@ -90,7 +90,7 @@ Route::group(['middleware' => ['auth']],function(){
 
     //---------------------------------------------------- ORDENES GABINETE CONSULTA Y RESPUESTA   -----------
     route::resource('ordenesG','OrdenesG\OrdenesGControladorABM');
-    route::resource('ordenGRespuesta','OrdenesL\ResultadoGControladorABM');
+    route::resource('ordenGRespuesta','OrdenesG\ResultadoGControladorABM');
 
     //---------------------------------------------------- TRATAMIENTOS CONSULTA    -----------
     route::resource('tratamientosC','TratamientosConsulta\TratamientosConsultaControladorABM');

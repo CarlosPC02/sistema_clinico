@@ -64,7 +64,7 @@ class MedicionControladorABM extends Controller
     public function store(Request $request)
     {
         //
-        //$codigo_transaccion=session('codigo_transaccion');
+
         //se deberia cargar desde session
         $codigo_transaccion="700";
         $id_persona=session('id_persona');

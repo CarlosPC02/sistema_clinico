@@ -42,7 +42,6 @@ class ResultadoGControladorABM extends Controller
     public function store(Request $request)
     {
         //
-    }
 
     /**
      * Display the specified resource.
@@ -50,6 +49,29 @@ class ResultadoGControladorABM extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+        //$id_orden_gabinete=session('id_orden_gabinete');
+
+        $codigo_transaccion="655";
+        $id_persona=session('id_persona');
+        
+        //session(['id_persona' =>$id_persona]);
+        $bitacora = new BitacoraControlador;
+        $id_bitacora= $bitacora->generar_bitacora($request,$codigo_transaccion);
+
+        $request -> merge(['id_bitacora' => $id_bitacora]);
+        
+        OrdenGabineteResultado::create($request->all());
+        
+        //Retorno los valores a 000.....
+        $codigo_transaccion="000";
+        session(['codigo_transaccion' =>$codigo_transaccion]);
+        
+        return redirect()->route('ordenesG.show',[$id_persona]);
+
+    }
+
+
     public function show($id)
     {
         //
