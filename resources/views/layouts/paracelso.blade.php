@@ -7,17 +7,6 @@
     <meta name="description" content="Plataforma de asistencia para médicos y especialistas que apoya en la atención de pacientes"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Metas para evitar boton atras e ingreso al aplicativo -->
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-store" />
-    <meta http-equiv="cache-control" content="must-revalidate" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Fin de metas -->
-
-
     <title>Plataforma Paracelso</title>
     <!-- Fonts -->
     <!-- Styles -->
@@ -63,13 +52,14 @@
                     </ul>
                 </li>
             @endif
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
+            
+            <!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url('/perfilusuario') }}">Mi perfil</a></li>
               <li><a href="{{ url('/reseteo') }}">Cambio de contrase&#241;a</a></li>
             </ul>
             </li>
-
+            
             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Adm<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url('/institucion') }}">Instituciones</a></li>
@@ -77,7 +67,7 @@
               <li><a href="{{ url('/usuario') }}">Usuarios</a></li>
             </ul>
             </li>
-
+            
             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Ayuda<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="{{ url('/faq') }}">Base de Conocimiento</a></li>
@@ -91,9 +81,9 @@
                 <li class="divider"></li>
                 <li><a href="{{ url('/privacidad') }}">Politica de Privacidad</a></li>
                 <li><a href="{{ url('/terminouso') }}">Términos de uso</a></li>
-                <!-- <li><a href="crear_paciente.html">Crear</a></li> -->
+                <li><a href="crear_paciente.html">Crear</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- /.navbar-collapse --> 
@@ -134,11 +124,13 @@
 
 <!-- Definicion de Footer Paracelso -->
       <footer>
-        <div class="footer" style="float:left; padding-top:15px;"> 
+        <div class="footer" style="float:left; padding-top:10px;"> 
           <div class="container">
-              <p><span class="fui-location"> </span> Edif. CES, Of. #204, Obraje calle 6, La Paz - Bolivia</p>
-              <p><span class="fui-chat"> </span> (+591) 720 00301 / (+591) 673 13333</p>
-              <p><span class="fui-mail"> </span>gerencia@timnetbo.com / soporte@timnetbo.com</p>
+              <p>
+              <small><span class="fui-location"> </span> Edif. CES, Of. #204, Obrajes calle 6, La Paz - Bolivia    </small>
+              <small><span class="fui-chat"> </span> (+591) 720 00301 / (+591) 673 13333    </small>
+              <small><span class="fui-mail"> </span>gerencia@timnetbo.com / soporte@timnetbo.com</small>
+              </p>
           </div>
          </div>
          

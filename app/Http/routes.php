@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web','revalidate']], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
 });
@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']],function(){
     //---------------------------------------------------- CITAS ---------------------------
     route::resource('cita','Cita\CitaControladorABM');
     route::post('/BuscarCita','Cita\CitaControlador@BuscarCita');
+    route::get('/CancelarCita/{id}','Cita\CitaControlador@CancelarCita');
+    route::get('/ConfirmaCancelacion/{id}','Cita\CitaControlador@Confirmar');
 
     //---------------------------------------------------- HISTORIA ------------------------
     route::resource('historia','Historia\HistoriaControladorABM');

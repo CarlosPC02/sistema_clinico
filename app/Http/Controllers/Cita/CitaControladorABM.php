@@ -109,6 +109,11 @@ class CitaControladorABM extends Controller
     public function edit($id)
     {
         //
+        $tipoC = $this->dominios->RepDominio("TIPO ESTADO CITA");
+        $medicos = $this->personas->RepMedico(Auth()->user()->codigo_institucion);
+        $cita = $this->citas->RepCitaEditar($id);
+        $modelo = Cita::FindOrFail($id);
+        return view('Cita.FrmEditarCita',['cita'=>$cita,'modelo'=>$modelo,'medicos'=>$medicos,'tipoc'=>$tipoC]);
     }
 
     /**
@@ -121,6 +126,17 @@ class CitaControladorABM extends Controller
     public function update(Request $request, $id)
     {
         //
+        $cita = Cita::FindOrFail($id);
+
+        $bitacora = new BitacoraControlador;
+        $id_bitacora = $bitacora->generar_bitacora($request,'501');
+        $request->merge(['id_bitacora'=>$id_bitacora]);
+        $request->merge(['codigo_institucion' => Auth()->user()->codigo_institucion]);
+
+        $datos = $request->all();
+        $cita->fill($datos)->save();
+
+        return redirect()->route('cita.index');
     }
 
     /**
@@ -132,5 +148,6 @@ class CitaControladorABM extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }
