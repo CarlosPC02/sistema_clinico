@@ -126,14 +126,14 @@
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Peso</span>
-				            <input id="peso" type="number" name="peso" class="form-control" placeholder="Peso Paciente" autocomplete="off" autofocus>
+				            <input id="peso" type="number" name="peso" class="form-control" placeholder="Peso en kg (p.ej.: 81,20)" autocomplete="off" autofocus>
 				        </div>
 				    </div>
 
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Talla</span>
-				            <input id="estatura" type="number" name="estatura" class="form-control" placeholder="Talla Paciente" autocomplete="off" autofocus>
+				            <input id="estatura" type="number" name="estatura" class="form-control" placeholder="Talla en cm (p.ej.: 159)" autocomplete="off" autofocus>
 				        </div>
 				    </div>
 				    <div class="form-group">
@@ -169,7 +169,7 @@
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Temp. (°C)</span>
-				            <input id="temperatura" type="number" name="temperatura" class="form-control" placeholder="Temperatura Corporal" autocomplete="off" autofocus>
+				            <input id="temperatura" type="number" name="temperatura" class="form-control" placeholder="Temperatura en °C (p.ej.: 38,2)" autocomplete="off" autofocus>
 				        </div>
 				    </div>
 				    <div class="form-group">
