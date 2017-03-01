@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Administracion\BitacoraControlador;
 
 use App\Models\OrdenLaboratorio;
-use App\Models\OrdenGabineteLaboratorio;
+use App\Models\OrdenLaboratorioResultado;
 
 class ResultadoLControladorABM extends Controller
 {
@@ -42,6 +42,24 @@ class ResultadoLControladorABM extends Controller
     public function store(Request $request)
     {
         //
+
+        $codigo_transaccion="645";
+        $id_persona=session('id_persona');
+        
+        //session(['id_persona' =>$id_persona]);
+        $bitacora = new BitacoraControlador;
+        $id_bitacora= $bitacora->generar_bitacora($request,$codigo_transaccion);
+
+        $request -> merge(['id_bitacora' => $id_bitacora]);
+        
+        OrdenLaboratorioResultado::create($request->all());
+        
+        //Retorno los valores a 000.....
+        $codigo_transaccion="000";
+        session(['codigo_transaccion' =>$codigo_transaccion]);
+        
+        return redirect()->route('ordenesL.show',[$id_persona]);
+
     }
 
     /**

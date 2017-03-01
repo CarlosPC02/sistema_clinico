@@ -63,8 +63,21 @@ class MedicionControladorABM extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //$codigo_transaccion=session('codigo_transaccion');
+        //Validaciones
+        $this->validate($request, [
+            'fecha' => 'bail|required',
+            'peso' => 'bail|required|min:0.4|max:170.999',
+            'estatura' => 'bail|required|min:10|max:220.99',
+            'presion_sistolica' => 'min:40|max:280',
+            'presion_diastolica' => 'min:0|max:210',
+            'frecuencia_cardiaca' => 'min:0|max:300',
+            'frecuencia_respiratoria' => 'min:0|max:120',
+            'temperatura' => 'min:0|max:45',
+            'spo2' => 'min:0|max:100',
+            'dolor' => 'min:0|max:10',
+        ]);
+        
+
         //se deberia cargar desde session
         $codigo_transaccion="700";
         $id_persona=session('id_persona');

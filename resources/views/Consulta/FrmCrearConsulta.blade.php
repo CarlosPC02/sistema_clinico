@@ -48,9 +48,9 @@
 						</div>
 					</div>
 
-				    <div class="form-group">
+				    <div class="form-group" style="margin-top: -20px;">
 				    	<label>Medico Responsable</label>
-				        <div class="selectContainer">
+				        <div class="selectContainer" style="margin-top: -10px;">
 				            <select class="form-control select-sm input-sm" id="id_medico" name="id_medico">
 				            	@foreach ($medicos as $medico)
 		                                    <option value="{{ $medico->id_medico}}">{{ $medico->nombre." ". $medico->ap_paterno." ".$medico->ap_materno}}</option>
@@ -59,9 +59,9 @@
 				        </div>
 				    </div>
 
-				    <div class="form-group">
+				    <div class="form-group" style="margin-top: -20px;">
 				    	<label>Tipo Consulta</label>
-				        <div class="selectContainer">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 				            <select class="form-control select-sm input-sm" id="tipo_consulta" name="tipo_consulta">
 				            	@foreach ($tipos as $tipo)
 		                            <option value="{{ $tipo->codigo_dominio }}">{{ $tipo->descripcion}}</option>
@@ -72,7 +72,7 @@
 
 				    <div class="form-group">
 				    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-				            <span class="input-group-addon" style="max-width: 120px;">Motivo de Consulta</span>
+				            <span class="input-group-addon" style="max-width: 120px;">Motivo Consulta</span>
 							{!! Form::text('motivo_consulta',null,['id'=>'motivo_consulta','class'=>'form-control','placeholder'=>'Motivo de Consulta']) !!}
 						</div>
 					</div>
@@ -113,60 +113,60 @@
 					{!! Form::open(['id'=>'formRevision']) !!}
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Examen Fisico General</span>
-								{!! Form::text('revision_general',null,['id'=>'revision_general','class'=>'form-control','placeholder'=>'Revision General']) !!}
+					            <span class="input-group-addon" style="max-width: 120px;">Examen Fisico</span>
+								{!! Form::text('revision_general',null,['id'=>'revision_general','class'=>'form-control','placeholder'=>'Examen Fisico General / Revision General']) !!}
 							</div>
 						</div>	
 						
-						<button type="button" id="mostrarP" class="btn btn-info">Examen Fisico Segmentario</button>
-						<button type="button" id="ocultarP" class="btn btn-success">Ocultar</button>
+						<button type="button" id="mostrarP" class="btn btn-primary btn-sm">Examen Fisico Segmentario</button>
+						<button type="button" id="ocultarP" class="btn btn-success btn-sm">Ocultar</button>
 
-						<div class="container" id="EFS">
+						<div class="container" id="EFS" style="margin-top: 15px; margin-left: -17px; margin-right: -30px;">
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Cabeza y Cuello</span>
+						            <span class="input-group-addon">Cabeza/Cuello</span>
 									{!! Form::text('cabeza_cuello',null,['id'=>'cabeza_cuello','class'=>'form-control','placeholder'=>'Cabeza y Cuello']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Torax</span>
+						            <span class="input-group-addon">Torax</span>
 									{!! Form::text('torax',null,['id'=>'torax','class'=>'form-control','placeholder'=>'Torax']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Miembros superiores</span>
+						            <span class="input-group-addon">M. superiores</span>
 									{!! Form::text('miembros_superiores',null,['id'=>'miembros_superiores','class'=>'form-control','placeholder'=>'Miembros superiores']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Abdomen</span>
+						            <span class="input-group-addon">Abdomen</span>
 									{!! Form::text('abdomen',null,['id'=>'abdomen','class'=>'form-control','placeholder'=>'Abdomen']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Miembros Inferiores</span>
+						            <span class="input-group-addon"">M. inferiores</span>
 									{!! Form::text('miembros_inferiores',null,['id'=>'miembros_inferiores','class'=>'form-control','placeholder'=>'Miembros Inferiores']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Genital y Urinario</span>
+						            <span class="input-group-addon">Genital/Urinario</span>
 									{!! Form::text('genital_urinario',null,['id'=>'genital_urinario','class'=>'form-control','placeholder'=>'Genital y Urinario']) !!}
 								</div>
 							</div>
 
 							<div class="form-group">
 						    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-						            <span class="input-group-addon" style="max-width: 120px;">Neurologico</span>
+						            <span class="input-group-addon">Neurologico</span>
 									{!! Form::text('neurologico',null,['id'=>'neurologico','class'=>'form-control','placeholder'=>'Neurologico']) !!}
 								</div>
 							</div>
@@ -204,15 +204,15 @@
 					{!! Form::open(['id'=>'formEvaluacion']) !!}
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Laboratorios con los que acude a esta consulta</span>
-								{!! Form::text('laboratorio',null,['id'=>'laboratorio','class'=>'form-control','placeholder'=>'Resultados de Laboratorio previos']) !!}
+					            <span class="input-group-addon" style="max-width: 120px;">Lab previos</span>
+								{!! Form::text('laboratorio',null,['id'=>'laboratorio','class'=>'form-control','placeholder'=>'Resultados de laboratorio previos con los que acude a esta consulta']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Gabinetes con los que acude a esta consulta</span>
-								{!! Form::text('gabinete',null,['id'=>'gabinete','class'=>'form-control','placeholder'=>'Estudios de gabinete previos']) !!}
+					            <span class="input-group-addon" style="max-width: 120px;">Gab previos</span>
+								{!! Form::text('gabinete',null,['id'=>'gabinete','class'=>'form-control','placeholder'=>'Estudios de gabinete previos con los que acude a esta consulta']) !!}
 							</div>
 						</div>
 
@@ -241,10 +241,10 @@
 		    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 		      <div class="panel-body">
 		      		{!! Form::open(['id'=>'formDiagnostico']) !!}
-			        	<div class="form-group">
+			        	<div class="form-group" style="margin-top: -15px;">
 					    	<label>Tipo Diagnostico</label>
-					        <div class="selectContainer">
-					            <select class="form-control select-sm input-sm" id="tipo_diagnostico" name="tipo_diagnostico">
+					        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
+					            <select class="form-control input-group-sm" id="tipo_diagnostico" name="tipo_diagnostico">
 					            	@foreach ($tiposd as $tipod)
 			                            <option value="{{ $tipod->codigo_dominio }}">{{ $tipod->descripcion}}</option>
 			                         @endforeach  
@@ -254,7 +254,7 @@
 
 					    <div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Diagnostico propio</span>
+					            <span class="input-group-addon" style="max-width: 120px;">Diag propio</span>
 								{!! Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control','placeholder'=>'Diagnostico del paciente']) !!}
 							</div>
 						</div>
@@ -283,9 +283,10 @@
 			<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
 			  <div class="panel-body">
 					{!! Form::open(['id'=>'formOrdenL']) !!}
-						<div class="form-group">
+
+						<div class="form-group" style="margin-top: -15px;">
 					    	<label>Tipo Laboratorio</label>
-					        <div class="selectContainer">
+					        <div class="selectContainer" style="margin-top: -15px;">
 					            <select class="form-control select-sm input-sm" id="tipo_laboratorio" name="tipo_laboratorio">
 					            	@foreach ($tiposl as $tipol)
 			                            <option value="{{ $tipol->codigo_dominio }}">{{ $tipol->descripcion}}</option>
@@ -296,14 +297,14 @@
 
 					    <div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones para el examen </span>
+					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones</span>
 								{!! Form::text('orden',null,['id'=>'orden','class'=>'form-control','placeholder'=>'Indicaciones para el examen']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Fecha programada para el examen</span>
+					            <span class="input-group-addon" style="max-width: 120px;">Fecha prog</span>
 								{!! Form::text('fechaL',$fecha,['id'=>'fechaL','class'=>'form-control','placeholder'=>'Fecha programada para el examen']) !!}
 							</div>
 						</div>
@@ -341,10 +342,10 @@
 			<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
 			  <div class="panel-body">
 					{!! Form::open(['id'=>'formOrdenG']) !!}
-						<div class="form-group">
+						<div class="form-group" style="margin-top: -15px;">
 					    	<label>Tipo Gabinete</label>
-					        <div class="selectContainer">
-					            <select class="form-control select-sm input-sm" id="tipo_gabinete" name="tipo_gabinete">
+					        <div class="selectContainer input-group-sm" style="margin-top: -15px;">
+					            <select class="form-control input-group-sm" id="tipo_gabinete" name="tipo_gabinete">
 					            	@foreach ($tiposg as $tipog)
 			                            <option value="{{ $tipog->codigo_dominio }}">{{ $tipog->descripcion}}</option>
 			                         @endforeach  
@@ -354,21 +355,21 @@
 
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Descripcion complementaria del examen (cabeza, cuello, torax, etc... con/sin contraste...)</span>
+					            <span class="input-group-addon" style="max-width: 120px;">Descripcion</span>
 								{!! Form::text('complemento',null,['id'=>'complemento','class'=>'form-control','placeholder'=>'Descripcion complementaria del examen (cabeza, cuello, torax, etc... con/sin contraste...)']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones para el examen </span>
+					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones</span>
 								{!! Form::text('ordenG',null,['id'=>'ordenG','class'=>'form-control','placeholder'=>'Indicaciones para el examen']) !!}
 							</div>
 						</div>
 
 						<div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Fecha programada para el examen</span>
+					            <span class="input-group-addon" style="max-width: 120px;">Fecha prog</span>
 								{!! Form::text('fechaG',$fecha,['id'=>'fechaG','class'=>'form-control','placeholder'=>'Fecha programada para el examen']) !!}
 							</div>
 						</div>
@@ -406,9 +407,10 @@
 			<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
 			  <div class="panel-body">
 					{!! Form::open(['id'=>'formTratamiento']) !!}
-						<div class="form-group">
+						
+						<div class="form-group" style="margin-top: -15px;">
 					    	<label>Tipo Tratamiento</label>
-					        <div class="selectContainer">
+					        <div class="selectContainer" style="margin-top: -10px;">
 					            <select class="form-control select-sm input-sm" id="tipo_tratamiento" name="tipo_tratamiento">
 					            	@foreach ($tipost as $tipot)
 			                            <option value="{{ $tipot->codigo_dominio }}">{{ $tipot->descripcion}}</option>
@@ -417,9 +419,9 @@
 					        </div>
 					    </div>
 
-					    <div class="form-group">
+					    <div class="form-group" style="margin-top: -25px;">
 					    	<label>Medicamento</label>
-					        <div class="selectContainer">
+					        <div class="selectContainer" style="margin-top: -10px;">
 					            <select class="form-control select-sm input-sm" id="codigo_medicamento" name="codigo_medicamento">
 					            	@foreach ($medicamentos as $medicamento)
 			                            <option value="{{ $medicamento->codigo_medicamento }}">{{ $medicamento->nombre_medico}} {{ $medicamento->nombre_comercial }} {{ $medicamento->posologia }} {{ $medicamento->presentacion }}</option>
@@ -430,7 +432,7 @@
 
 					    <div class="form-group">
 					    	<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
-					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones del tratamiento</span>
+					            <span class="input-group-addon" style="max-width: 120px;">Indicaciones</span>
 								{!! Form::text('prescripcion',null,['id'=>'prescripcion','class'=>'form-control','placeholder'=>'Indicaciones del tratamiento']) !!}
 							</div>
 						</div>
@@ -443,7 +445,7 @@
 							{!! Form::hidden('estadoT','AC',['id'=>'estadoT','class'=>'form-control','placeholder'=>'Estado']) !!}
 						</div>
 
-						{!! link_to('#','guardar...',['id'=>'guardarT','class'=>'btn btn-primary btn-sm m-t-10']) !!}
+						{!! link_to('#','Guardar...',['id'=>'guardarT','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 						<div class="container" id="ListaTratamientos">
 			            	<!-- RESULTADO DE LA BUSQUEDA --> 

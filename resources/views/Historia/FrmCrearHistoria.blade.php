@@ -26,10 +26,10 @@
 				  	{{-- {!! Form::open(['route'=>'historia.store','method'=>'POST','role'=>'form']) !!} --}}
 				    {!! Form::open(['id'=>'formHistoria']) !!}
 
-				    <div class="form-group">
+				    <div class="form-group" style="margin-top: -15px;">
 				    	<label>Medico Responsable</label>
-				        <div class="selectContainer">
-				            <select class="form-control select-sm input-sm" id="id_medico" name="id_medico">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
+				            <select class="form-control" id="id_medico" name="id_medico">
 				            	@foreach ($medicos as $medico)
 		                                    <option value="{{ $medico->id_medico}}">{{ $medico->nombre." ". $medico->ap_paterno." ".$medico->ap_materno}}</option>
 		                         @endforeach  
@@ -38,22 +38,22 @@
 				    </div>
 				    
 				    <div class="form-group">
-				    	<div class="input-group input-group-sm" style="margin-bottom: -10px;">
+				    	<div class="input-group input-group-sm" style="margin-top: -10px;">
 				            <span class="input-group-addon" style="max-width: 80px;">Fecha</span>
 							{!! Form::text('fecha',$fecha,['id'=>'fecha','class'=>'form-control','placeholder'=>'Fecha']) !!}
 						</div>
 					</div>
 
 					<div class="form-group">
-						<div class="input-group input-group-sm" style="margin-bottom: -10px; margin-top: -10px;">
+						<div class="input-group input-group-sm" style="margin-top: -10px;">
 				            <span class="input-group-addon" style="max-width: 80px;">Hora</span>
 							{!! Form::text('hora',$hora,['id'=>'hora','class'=>'form-control','placeholder'=>'hora']) !!}
 						</div>
 					</div>
 					
-					<div class="form-group">
+					<div class="form-group" style="margin-top: -15px;">
 				    	<label>Grupo Sanguineo</label>
-				        <div class="selectContainer">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 				            <select class="form-control" id="grupo_sanguineo" name="grupo_sanguineo">
 		                        <option value="O Rh(+)">O Rh(+)</option>
 		                        <option value="A Rh(+)">A Rh(+)</option>
@@ -78,9 +78,9 @@
 						{!! Form::hidden('estado','AC',['id'=>'estado','class'=>'form-control','placeholder'=>'Estado']) !!}
 					</div>
 
-					{{-- {!! Form::submit('guardar',['nombre'=>'guardar','id'=>'guardar','content'=>'<span>guardar</span>','class'=>'btn btn-primary btn-sm m-t-10']) !!} --}}
+					{{-- {!! Form::submit('Guardar',['nombre'=>'guardar','id'=>'guardar','content'=>'<span>guardar</span>','class'=>'btn btn-primary btn-sm m-t-10']) !!} --}}
 					
-					{!! link_to('#','guardar',['id'=>'guardar','class'=>'btn btn-primary btn-sm m-t-10']) !!}
+					{!! link_to('#','Guardar',['id'=>'guardar','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 					<div class="form-group">
 						{!! Form::hidden('id_historia','',['id'=>'id_historia','class'=>'form-control','placeholder'=>'idh']) !!}
 					</div>
@@ -105,9 +105,9 @@
 				{{-- {!! Form::open(['route'=>'alergia.store','method'=>'POST','role'=>'form']) !!} --}}
 			    {!! Form::open(['id'=>'formAlergia']) !!}
 					
-			    	<div class="form-group">
+			    	<div class="form-group" style="margin-top: -10px;">
 				    	<label>Tipo de Alergia</label>
-				        <div class="selectContainer">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 				            <select class="form-control" id="tipo_alergia" name="tipo_alergia">
 				            	@foreach ($tipos as $tipo)
 		                            <option value="{{ $tipo->codigo_dominio }}">{{ $tipo->descripcion}}</option>
@@ -116,9 +116,9 @@
 				        </div>
 				    </div>
 
-				    <div class="form-group">
+				    <div class="form-group" style="margin-top: -20px;">
 				    	<label>Grado de Severidad</label>
-				        <div class="selectContainer bordes_izq_der">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 				            <select class="form-control" id="severidad" name="severidad">
 		                        <option value="Muy Severo">Muy Severo</option>
 		                        <option value="Severo">Severo</option>
@@ -128,9 +128,11 @@
 				        </div>
 				    </div>
 
-				    <div class="form-group">
-						{!! Form::label('Agente causal') !!}
-						{!! Form::text('agente',null,['id'=>'agente','class'=>'form-control','placeholder'=>'Agente causal']) !!}						
+				    <div class="form-group" style="margin-left: 15px;">
+				    	<div class="input-group input-group-sm posicion_input">
+		            	<span class="input-group-addon">Ag casual</span>
+							{!! Form::text('agente',null,['id'=>'agente','class'=>'form-control','placeholder'=>'Agente causal']) !!}
+						</div>					
 					</div>
 
 					<div class="form-group">
@@ -138,7 +140,7 @@
 					</div>
 
 					{{-- {!! Form::submit('guardar',['nombre'=>'guardar','id'=>'guardar','content'=>'<span>guardar</span>','class'=>'btn btn-warning btn-sm m-t-10']) !!} --}}
-					{!! link_to('#','guardar',['id'=>'guardarAlergia','class'=>'btn btn-warning btn-sm m-t-10']) !!}
+					{!! link_to('#','Guardar',['id'=>'guardarAlergia','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 					<div class="container" id="ListaAlergias">
 		            	<!-- RESULTADO DE LA BUSQUEDA LstAlergias --> 
@@ -162,18 +164,22 @@
 				{!! Form::open(['id'=>'formDiagnostico']) !!}
 
 					<div class="form-group">
-						{!! Form::label('Diagnostico propio') !!}
-						{!! Form::text('diagnostico',null,['id'=>'diagnostico','class'=>'form-control','placeholder'=>'Diagnostico propio']) !!}						
+						<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Diag propio</span>
+								{!! Form::text('diagnostico',null,['id'=>'diagnostico','class'=>'form-control','placeholder'=>'Diagnostico propio']) !!}
+						</div>
 					</div>
 					
 			    	<div class="form-group">
-						{!! Form::label('Diagnostico CIE 10') !!}
-						{!! Form::text('diagnostico_cie10',null,['id'=>'diagnostico_cie10','class'=>'form-control','placeholder'=>'codigo - Diagnostico CIE 10']) !!}						
+						<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Diag CIE10</span>
+								{!! Form::text('diagnostico_cie10',null,['id'=>'diagnostico_cie10','class'=>'form-control','placeholder'=>'codigo - Diagnostico CIE 10']) !!}						
+						</div>
 					</div>
 
-				    <div class="form-group">
+				    <div class="form-group" style="margin-top: -20px;">
 				    	<label>Tipo diagnostico</label>
-				        <div class="selectContainer bordes_izq_der">
+				        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 				            <select class="form-control" id="agudo_cronico" name="agudo_cronico">
 		                        <option value="A">Agudo</option>
 		                        <option value="C">Cronico</option>
@@ -182,8 +188,10 @@
 				    </div>
 
 				    <div class="form-group">
-						{!! Form::label('Comentarios') !!}
-						{!! Form::text('comentarios',null,['id'=>'comentarios','class'=>'form-control','placeholder'=>'Comentarios']) !!}						
+						<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Comentarios</span>
+							{!! Form::text('comentarios',null,['id'=>'comentarios','class'=>'form-control','placeholder'=>'Comentarios']) !!}
+						</div>						
 					</div>
 
 					<div class="form-group">
@@ -191,7 +199,7 @@
 					</div>
 
 					{{-- {!! Form::submit('Guardar',['nombre'=>'guardar','id'=>'guardar','content'=>'<span>Guardar</span>','class'=>'btn btn-warning btn-sm m-t-10']) !!} --}}
-					{!! link_to('#','guardar',['id'=>'guardarDiagnostico','class'=>'btn btn-warning btn-sm m-t-10']) !!}
+					{!! link_to('#','Guardar',['id'=>'guardarDiagnostico','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 					<div class="container" id="ListaDiagnosticos">
 		            	<!-- RESULTADO DE LA BUSQUEDA LstAlergias --> 
@@ -214,24 +222,30 @@
 		      <div class="panel-body">
 		        	{!! Form::open(['id'=>'formTratamiento']) !!}
 						<div class="form-group">
-							{!! Form::label('Tratamiento/Terapia') !!}
-							{!! Form::text('tratamiento',null,['id'=>'tratamiento','class'=>'form-control','placeholder'=>'Tratamiento/Terapia']) !!}						
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Tratamiento</span>
+			            		{!! Form::text('tratamiento',null,['id'=>'tratamiento','class'=>'form-control','placeholder'=>'Tratamiento/Terapia']) !!}
+			            	</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('Diagnostico/Causal') !!}
-							{!! Form::text('causa_tratamiento',null,['id'=>'causa_tratamiento','class'=>'form-control','placeholder'=>'Diagnostico/Causal']) !!}					
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Diagnostico</span>
+								{!! Form::text('causa_tratamiento',null,['id'=>'causa_tratamiento','class'=>'form-control','placeholder'=>'Diagnostico/Causal']) !!}					
+							</div>
 						</div>
 
 						<div class="form-group">
-							{!! Form::label('Como lo recibe') !!}
-							{!! Form::text('modo_tratamiento',null,['id'=>'modo_tratamiento','class'=>'form-control','placeholder'=>'Como lo recibe']) !!}					
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Como lo recibe</span>
+								{!! Form::text('modo_tratamiento',null,['id'=>'modo_tratamiento','class'=>'form-control','placeholder'=>'Como lo recibe']) !!}
+							</div>
 						</div>
 						<div class="form-group">
 							{!! Form::hidden('estadoT','AC',['id'=>'estadoT','class'=>'form-control','placeholder'=>'Estado']) !!}					
 						</div>
 
-						{!! link_to('#','guardar',['id'=>'guardarTratamiento','class'=>'btn btn-warning btn-sm m-t-10']) !!}
+						{!! link_to('#','Guardar',['id'=>'guardarTratamiento','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 						<div class="container" id="ListaTratamientos">
 			            	<!-- RESULTADO DE LA BUSQUEDA LstAlergias --> 
@@ -253,9 +267,10 @@
 			<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
 			  <div class="panel-body">
 					{!! Form::open(['id'=>'formAntecedentes']) !!}
-						<div class="form-group">
+
+						<div class="form-group" style="margin-top: -10px;">
 					    	<label>Tipo de Antecedente</label>
-					        <div class="selectContainer">
+					        <div class="selectContainer input-group-sm" style="margin-top: -10px;">
 					            <select class="form-control" id="tipo_antecedente" name="tipo_antecedente">
 					            	@foreach ($tipoa as $tipoas)
 			                            <option value="{{ $tipoas->codigo_dominio }}">{{ $tipoas->descripcion}}</option>
@@ -264,15 +279,17 @@
 					        </div>
 					    </div>
 						
-						<div class="form-group">
-							{!! Form::label('Descripcion del antecedente') !!}
-							{!! Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control','placeholder'=>'Descripcion del antecedente']) !!}					
+						<div class="form-group" style="margin-top: -10px;">
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Descripcion</span>
+								{!! Form::text('descripcion',null,['id'=>'descripcion','class'=>'form-control','placeholder'=>'Descripcion del antecedente']) !!}
+							</div>
 						</div>
 						<div class="form-group">
 							{!! Form::hidden('estadoN','AC',['id'=>'estadoN','class'=>'form-control','placeholder'=>'Estado']) !!}					
 						</div>
 
-						{!! link_to('#','guardar',['id'=>'guardarAntecedente','class'=>'btn btn-warning btn-sm m-t-10']) !!}
+						{!! link_to('#','Guardar',['id'=>'guardarAntecedente','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 						<div class="container" id="ListaAntecedentes">
 			            	<!-- RESULTADO DE LA BUSQUEDA --> 
@@ -295,18 +312,22 @@
 			  <div class="panel-body">
 					{!! Form::open(['id'=>'formNopatologicos']) !!}
 						<div class="form-group">
-							{!! Form::label('Tipo de Habito/Ant. NO patologico') !!}
-							{!! Form::text('tipo_habito',null,['id'=>'tipo_habito','class'=>'form-control','placeholder'=>'Tipo de Habito/Ant. NO patologico']) !!}					
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Tipo hábito</span>
+								{!! Form::text('tipo_habito',null,['id'=>'tipo_habito','class'=>'form-control','placeholder'=>'Tipo de Habito/Ant. NO patologico']) !!}
+							</div>
 						</div>
 						<div class="form-group">
-							{!! Form::label('Descripcion...') !!}
-							{!! Form::text('descripcionh',null,['id'=>'descripcionh','class'=>'form-control','placeholder'=>'Descripcion...']) !!}					
+							<div class="input-group input-group-sm">
+			            	<span class="input-group-addon">Descripcion</span>
+								{!! Form::text('descripcionh',null,['id'=>'descripcionh','class'=>'form-control','placeholder'=>'Descripcion...']) !!}
+							</div>
 						</div>
 						<div class="form-group">
 							{!! Form::hidden('estadoNP','AC',['id'=>'estadoNP','class'=>'form-control','placeholder'=>'Estado']) !!}					
 						</div>
 
-						{!! link_to('#','guardar',['id'=>'guardarNopatologico','class'=>'btn btn-warning btn-sm m-t-10']) !!}
+						{!! link_to('#','Guardar',['id'=>'guardarNopatologico','class'=>'btn btn-primary btn-sm m-t-10']) !!}
 
 						<div class="container" id="ListaHabitos">
 			            	<!-- RESULTADO DE LA BUSQUEDA --> 
