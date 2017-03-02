@@ -98,6 +98,25 @@ class RevisionConsultaControladorABM extends Controller
     public function update(Request $request, $id)
     {
         //
+        if($request->ajax())
+        {
+            $bitacora = new BitacoraControlador;
+            $id_bitacora= $bitacora->generar_bitacora($request,'611');
+            $request->merge(['id_bitacora' => $id_bitacora]);
+
+            $revision = RevisionConsulta::where('id_consulta','=',$id)->first();
+            $input=$request->all();
+            $resultado=$revision->fill($input)->save();
+
+            if($resultado)
+            {
+                return response()->json(['success'=>'true']);
+            }
+            else
+            {
+                return response()->json(['success'=>'false']);
+            }
+        }
     }
 
     /**

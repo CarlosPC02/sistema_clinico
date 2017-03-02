@@ -7,17 +7,7 @@
     <meta name="description" content="Plataforma de asistencia para médicos y especialistas que apoya en la atención de pacientes"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Metas para evitar boton atras e ingreso al aplicativo -->
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="cache-control" content="no-store" />
-    <meta http-equiv="cache-control" content="must-revalidate" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <!-- Fin de metas -->
-
-    <title>Plataforma Paracelso</title>
+    <title>TiMnet</title>
 
     <!-- Fonts -->
 
@@ -62,16 +52,24 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Ingresar</a></li>
-                        <li><a href="{{ url('/register') }}">Registrar</a></li>
                     @else
+
+                        {{-- @if(Session::has('users'))
+                            <p class="alert">Hay una sesion iniciada</p>
+                        @endif --}}
+
                         <li class="dropdown">
-                            <a href="{{ url('lstcalendario') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Salir</a>
+                                    <a href="{{ url('/cita') }}">Volver a mi sesion</a>
                                 </li>
+                                <li>
+                                    <a href="{{ url('/logout') }}">Salir</a>
+                                </li>
+                                
                             </ul>
                         </li>
                     @endif
