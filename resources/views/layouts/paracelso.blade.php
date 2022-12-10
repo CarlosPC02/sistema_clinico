@@ -53,7 +53,7 @@
                 </li>
             @endif
             
-            <!-- <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
+            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="{{ url('/perfilusuario') }}">Mi perfil</a></li>
               <li><a href="{{ url('/reseteo') }}">Cambio de contrase&#241;a</a></li>
@@ -65,6 +65,7 @@
               <li><a href="{{ url('/institucion') }}">Instituciones</a></li>
               <li><a href="{{ url('/medico') }}">Medicos</a></li>
               <li><a href="{{ url('/usuario') }}">Usuarios</a></li>
+              <li><a href="{{ url('/seguro') }}">Seguros</a></li>
             </ul>
             </li>
             
@@ -83,7 +84,7 @@
                 <li><a href="{{ url('/terminouso') }}">Términos de uso</a></li>
                 <li><a href="crear_paciente.html">Crear</a></li>
               </ul>
-            </li> -->
+            </li>
           </ul>
         </div>
         <!-- /.navbar-collapse --> 

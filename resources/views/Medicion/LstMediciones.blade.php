@@ -98,7 +98,7 @@
 		</div>
 	</div>
 
-		|<!--Modales-->
+	<!--Modales-->
 	<!--modal para signos vitales-->
 	<div class="modal fade" id="signos" role="dialog" aria-hidden="false">
 		<div class="modal-dialog">
@@ -110,7 +110,7 @@
 				<div class="modal-body">
 				<!--Formulario de Registro de Signos Vitales-->
 				{!! Form::open(['route'=>'medicion.store','method'=>'POST']) !!}
-				{{ csrf_field() }}
+				
 					
 					<div class="form-group">
 						{!! Form::hidden('id_persona',session('id_persona'),['id'=>'id_persona']) !!}
@@ -119,76 +119,89 @@
 		            <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-bottom: -10px;">
 				            <span class="input-group-addon">Fecha Toma</span>
-				            <input id="fecha" type="date" name="fecha" value={{ $fecha_actual }} class="form-control" placeholder="Fecha toma" autocomplete="off" autofocus>
+				            {!! Form::text('fecha',$fecha_actual,['id'=>'fecha','class'=>'form-control','placeholder'=>'Fecha','value'=>'$fecha_actual']) !!}
+
+				            <!-- <input id="fecha" type="date" name="fecha" value={{ $fecha_actual }} class="form-control" placeholder="Fecha toma" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Peso</span>
-				            <input id="peso" type="number" name="peso" class="form-control" placeholder="Peso en kg (p.ej.: 81,20)" autocomplete="off" autofocus>
+				            {!! Form::text('peso',null,['id'=>'peso','step'=>'any','min'=>'0.4','max'=>'170.999', 'class'=>'form-control','placeholder'=>'Peso en Kg (p.ej.: 81.275)']) !!}
+				            <!-- <input id="peso" type="number" step="any" name="peso" class="form-control" placeholder="Peso en kg (p.ej.: 81,20)" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Talla</span>
-				            <input id="estatura" type="number" name="estatura" class="form-control" placeholder="Talla en cm (p.ej.: 159)" autocomplete="off" autofocus>
+				            {!! Form::text('estatura',null,['id'=>'estatura','step'=>'any','min'=>'0.1','max'=>'220.99', 'class'=>'form-control','placeholder'=>'Talla en cm (p.ej.: 159.85)']) !!}
+				            <!-- <input id="estatura" type="number" step="any" name="estatura" class="form-control" placeholder="Talla en cm (p.ej.: 159)" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">IMC</span>
-				            <input id="imc" type="number" name="imc" class="form-control" placeholder="Indice Masa Corporal" autocomplete="off" autofocus>
+				            {!! Form::text('imc',null,['id'=>'imc','min'=>'0','max'=>'150', 'class'=>'form-control','placeholder'=>'Indice Masa Corporal']) !!}
+				            <!-- <input id="imc" type="number" name="imc" class="form-control" placeholder="Indice Masa Corporal" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">P. Sistolica</span>
-				            <input id="presion_sistolica" type="number" name="presion_sistolica" class="form-control" placeholder="Presion Sistólica" autocomplete="off" autofocus>
+				            {!! Form::text('presion_sistolica', null,['id'=>'presion_sistolica','min'=>'40','max'=>'280', 'class'=>'form-control','value' => null,'placeholder'=>'Presion Sistolica']) !!}
+				            <!-- <input id="presion_sistolica" type="number" name="presion_sistolica" class="form-control" placeholder="Presion Sistólica" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">P. Diastolica</span>
-				            <input id="presion_diastolica" type="number" name="presion_diastolica" class="form-control" placeholder="Presion Diastólica" autocomplete="off" autofocus>
+				            {!! Form::text('presion_diastolica',null,['id'=>'presion_diastolica','min'=>'40','max'=>'280', 'class'=>'form-control','placeholder'=>'Presion Diastolica']) !!}
+				            <!-- <input id="presion_diastolica" type="number" name="presion_diastolica" class="form-control" placeholder="Presion Diastólica" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">F. Cardiaca</span>
-				            <input id="frecuencia_cardiaca" type="number" name="frecuencia_cardiaca" class="form-control" placeholder="Frecuencia Cardíaca" autocomplete="off" autofocus>
+				            {!! Form::number('frecuencia_cardiaca',null,['id'=>'frecuencia_cardiaca','min'=>'0','max'=>'300', 'class'=>'form-control','value' => null,'placeholder'=>'Frecuencia Cardiaca']) !!}
+				            <!-- <input id="frecuencia_cardiaca" type="number" name="frecuencia_cardiaca" class="form-control" placeholder="Frecuencia Cardíaca" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">F. Respiratoria</span>
-				            <input id="frecuencia_respiratoria" type="number" name="frecuencia_respiratoria" class="form-control" placeholder="Frecuencia Respiratoria" autocomplete="off" autofocus>
+				            {!! Form::number('frecuencia_respiratoria',null,['id'=>'frecuencia_respiratoria','min'=>'0','max'=>'120', 'class'=>'form-control','value' => null,'placeholder'=>'Frecuencia Respiratoria']) !!}
+				            <!-- <input id="frecuencia_respiratoria" type="number" name="frecuencia_respiratoria" class="form-control" placeholder="Frecuencia Respiratoria" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Temp. (°C)</span>
-				            <input id="temperatura" type="number" name="temperatura" class="form-control" placeholder="Temperatura en °C (p.ej.: 38,2)" autocomplete="off" autofocus>
+				            {!! Form::number('temperatura',null,['id'=>'temperatura','min'=>'0.0','max'=>'45.9', 'class'=>'form-control','value' => null,'placeholder'=>'Temperatura']) !!}
+				            <!-- <input id="temperatura" type="number" name="temperatura" class="form-control" placeholder="Temperatura en °C (p.ej.: 38,2)" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">SPO2(%)</span>
-				            <input id="spo2" type="number" name="spo2" class="form-control" placeholder="SPO2" autocomplete="off" autofocus>
+				            {!! Form::number('spo2',null,['id'=>'spo2','min'=>'0','max'=>'45', 'class'=>'form-control','value' => null,'placeholder'=>'spo2']) !!}
+				            <!-- <input id="spo2" type="number" name="spo2" class="form-control" placeholder="SPO2" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Dolor(1-10)</span>
-				            <input id="dolor" type="number" name="dolor" class="form-control" placeholder="Nivel Dolor" autocomplete="off" autofocus>
+				            {!! Form::number('dolor',null,['id'=>'dolor','min'=>'0','max'=>'10', 'class'=>'form-control','value' => null,'placeholder'=>'dolor']) !!}
+				            <!-- <input id="dolor" type="number" name="dolor" class="form-control" placeholder="Nivel Dolor" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 
 				    <div class="form-group">
 				        <div class="input-group input-group-sm" style="margin-top: -10px; margin-bottom: -10px;">
 				            <span class="input-group-addon">Observaciones</span>
-				            <input id="observaciones" type="text" name="observaciones" class="form-control" placeholder="Observaciones" autocomplete="off" autofocus>
+				            {!! Form::text('observaciones',null,['id'=>'observaciones','class'=>'form-control','value' => null,'placeholder'=>'observaciones']) !!}
+				            <!-- <input id="observaciones" type="text" name="observaciones" class="form-control" placeholder="Observaciones" autocomplete="off" autofocus> -->
 				        </div>
 				    </div>
 
