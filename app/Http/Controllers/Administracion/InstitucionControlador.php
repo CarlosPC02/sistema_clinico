@@ -49,7 +49,7 @@ class InstitucionControlador extends Controller
         //no se conoce el codigo de institucion para registro de intituciones
         $bitacora = new BitacoraControlador;
 
-        $idbitacora = $bitacora->generar_bitacora($request,$codigo_transaccion);
+        //$idbitacora = $bitacora->generar_bitacora($request,$codigo_transaccion);
 
         Institucion::create($request->all());
 
@@ -77,7 +77,7 @@ class InstitucionControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit1($id)
     {
         //
     }
@@ -89,7 +89,7 @@ class InstitucionControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update1(Request $request, $id)
     {
         //
     }
@@ -104,4 +104,64 @@ class InstitucionControlador extends Controller
     {
         //
     }
+        //Editar institucion
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param  int  $id_institucion
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id_institucion) //redirige al formulario
+    {
+        $institucion=Institucion::find($id_institucion);
+        return view('Institucion.FrmEditarInstitucion')->with('institucion', $institucion);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id_institucion
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id_institucion)
+    {
+        //
+        $institucion = Institucion::FindOrFail($id_institucion);
+
+        $bitacora = new BitacoraControlador;
+        //$idbitacora = $bitacora->generar_bitacora($request,$codigo_transaccion);
+
+        //Captura y guarda datos
+        $datos = $request->all();
+        $institucion->fill($datos)->save();
+
+        return redirect()->route('institucion.index');
+    }
+    //Editar
+
+    //Eliminar
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id_institucion
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Request $request, $id_institucion)
+    {
+        $institucion=Institucion::find($id_institucion);
+
+        $bitacora = new BitacoraControlador;
+        //$idbitacora = $bitacora->generar_bitacora($request,$codigo_transaccion);
+
+        //Captura y guarda datos
+        $institucion->estado = 'INC';
+        //$institucion->fill($datos)->save();
+        $institucion->save();
+
+        return redirect()->route('institucion.index');
+    }
+    //Eliminar
+
 }

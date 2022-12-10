@@ -34,8 +34,8 @@
 					<td>{{ $institucion-> descripcion}}</td>
 					<td>{{ $institucion-> direccion}}</td>
 					<td>{{ $institucion-> estado}}</td>
-					<td><a href="#" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-edit" style="color: #1ABC9C; text-align: center;"></span></a>
-						<a href="#" data-toggle="tooltip" title="Eliminar"><span class="glyphicon glyphicon-remove-circle" style="color: #C0392B; text-align: center;"></span></a>
+					<td><a href="institucion/editar/{{ $institucion-> id_institucion}}" data-toggle="tooltip" title="Editar"><span class="glyphicon glyphicon-edit" style="color: #1ABC9C; text-align: center;"></span></a>
+						<a href="institucion/eliminar/{{ $institucion-> id_institucion}}" data-toggle="tooltip" title="Eliminar"><span class="glyphicon glyphicon-remove-circle" style="color: #C0392B; text-align: center;"></span></a>
 					</td>
 				</tr>
 				@endforeach

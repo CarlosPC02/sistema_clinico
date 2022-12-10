@@ -30,10 +30,15 @@ Route::group(['middleware' => ['auth']],function(){
     route::resource('usuario','Administracion\UsuariosControlador');
 
     //---------------------------------------------------- SEGUROS --------------------------
-    route::post('/seguro','Seguro\SeguroControlador@ObtenerSeguros'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
-
+    route::resource('seguro','Seguro\SeguroControlador'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
+    route::get('seguro/editar/{id_seguro}','Seguro\SeguroControlador@edit'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
+    route::get('seguro/eliminar/{id_seguro}','Seguro\SeguroControlador@delete');
+    //route::post('/seguro','Seguro\SeguroControlador@ObtenerSeguros'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
+    
     //---------------------------------------------------- INSTITUCIONES --------------------
     route::resource('institucion','Administracion\InstitucionControlador');
+    route::get('institucion/editar/{id_institucion}','Administracion\InstitucionControlador@edit'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
+    route::get('institucion/eliminar/{id_institucion}','Administracion\InstitucionControlador@delete'); //Manda al controlador la variable para buscar y llenar el combobox dependiente
 
     //---------------------------------------------------- PERSONAS -------------------------
     route::resource('persona','Persona\PersonaControladorABM');
